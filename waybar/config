@@ -1,0 +1,54 @@
+{
+    "layer": "top",
+    "position": "top", 
+    "height": 30, 
+    "spacing": 3,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": [],
+    "modules-right": ["tray", "network", "pulseaudio", "memory", "cpu", "clock"],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "sort-by-number": true,
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "hyprland/window": {
+        "format": "\uf061 {}",
+        "separate-outputs": true
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "interval": 1,
+        "format": "\uf017 {:%H:%M:%S}",
+        "format-alt": "\uf133 {:%Y-%m-%d %H:%M:%S}"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 1,
+        "format": " {used}G",
+        "tooltip": false
+    },
+    "network": {
+        "interval": 1,
+        "format-ethernet": "\uf062 {bandwidthUpBits} \uf063 {bandwidthDownBits}",
+        "format-disconnected": "⚠ Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click-right": "pavucontrol"
+    }
+}
